@@ -18,15 +18,16 @@ module.exports = function(Heim, options) {
 			id: id,
 			name: info.name,
 			vendor: nodeinfo.manufacturer,
+			type: 'switch',
 			ready: true,
 			on: function() {
 				zwave.setNodeOn(id);
 			},
 			off: function() {
-				zwave.setNodeOn(id);
+				zwave.setNodeOff(id);
 			},
 			level: function(level) {
-				zwave.setNodeOn(id, level);
+				zwave.setLevel(id, level);
 			}
 		});
 	});
